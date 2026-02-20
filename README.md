@@ -4,41 +4,44 @@ A lightweight Human Resource Management System for managing employees and tracki
 
 ## Live Demo
 
-| Service  | URL |
-|----------|-----|
-| Frontend | `https://your-app.vercel.app` *(replace after deploy)* |
-| Backend  | `https://your-api.onrender.com` *(replace after deploy)* |
-| API Docs | `https://your-api.onrender.com/docs` |
+| Service  | URL                                   |
+| -------- | ------------------------------------- |
+| Frontend | `https://hrms-liart-xi.vercel.app`    |
+| Backend  | `https://hrms-esg8.onrender.com`      |
+| API Docs | `https://hrms-esg8.onrender.com/docs` |
 
 ---
 
 ## Tech Stack
 
-| Layer      | Technology                        |
-|------------|-----------------------------------|
-| Frontend   | React 18, Vite, Tailwind CSS      |
-| Backend    | Python 3.11, FastAPI, SQLAlchemy  |
-| Database   | PostgreSQL (prod), SQLite (dev)   |
-| Deploy FE  | Vercel                            |
-| Deploy BE  | Render                            |
+| Layer     | Technology                       |
+| --------- | -------------------------------- |
+| Frontend  | React 18, Vite, Tailwind CSS     |
+| Backend   | Python 3.11, FastAPI, SQLAlchemy |
+| Database  | PostgreSQL (prod), SQLite (dev)  |
+| Deploy FE | Vercel                           |
+| Deploy BE | Render                           |
 
 ---
 
 ## Features
 
 **Employee Management**
+
 - Add employees (ID, Name, Email, Department)
 - View all employees with search/filter
 - Delete employee (cascades to attendance records)
 - Duplicate ID and email validation
 
 **Attendance Management**
+
 - Mark attendance (Present / Absent) per employee per day
 - Prevent duplicate attendance for the same day
 - Filter attendance records by date
 - View present/absent/total summary per employee
 
 **Dashboard**
+
 - Total employee count
 - Department count
 - Today's present & absent count
@@ -49,6 +52,7 @@ A lightweight Human Resource Management System for managing employees and tracki
 ## Run Locally
 
 ### Prerequisites
+
 - Python 3.10+
 - Node.js 18+
 
@@ -107,7 +111,7 @@ Frontend will be at: http://localhost:5173
    - **Build Command:** `pip install -r requirements.txt`
    - **Start Command:** `uvicorn main:app --host 0.0.0.0 --port $PORT`
 6. Create a **PostgreSQL** database on Render
-7. Add environment variable: `DATABASE_URL` → *(copy from your Render PostgreSQL)*
+7. Add environment variable: `DATABASE_URL` → _(copy from your Render PostgreSQL)_
 8. Deploy
 
 ### Frontend → Vercel
@@ -123,24 +127,27 @@ Frontend will be at: http://localhost:5173
 ## API Endpoints
 
 ### Employees
-| Method | Endpoint                    | Description          |
-|--------|-----------------------------|----------------------|
-| GET    | `/employees/`               | List all employees   |
-| POST   | `/employees/`               | Add a new employee   |
-| GET    | `/employees/{id}`           | Get single employee  |
-| DELETE | `/employees/{id}`           | Delete an employee   |
+
+| Method | Endpoint          | Description         |
+| ------ | ----------------- | ------------------- |
+| GET    | `/employees/`     | List all employees  |
+| POST   | `/employees/`     | Add a new employee  |
+| GET    | `/employees/{id}` | Get single employee |
+| DELETE | `/employees/{id}` | Delete an employee  |
 
 ### Attendance
-| Method | Endpoint                            | Description                     |
-|--------|-------------------------------------|---------------------------------|
-| POST   | `/attendance/`                      | Mark attendance                 |
-| GET    | `/attendance/{employee_id}`         | Get records (optional ?date=)   |
-| GET    | `/attendance/summary/{employee_id}` | Get present/absent summary      |
+
+| Method | Endpoint                            | Description                   |
+| ------ | ----------------------------------- | ----------------------------- |
+| POST   | `/attendance/`                      | Mark attendance               |
+| GET    | `/attendance/{employee_id}`         | Get records (optional ?date=) |
+| GET    | `/attendance/summary/{employee_id}` | Get present/absent summary    |
 
 ### Dashboard
-| Method | Endpoint            | Description          |
-|--------|---------------------|----------------------|
-| GET    | `/dashboard/stats`  | Dashboard statistics |
+
+| Method | Endpoint           | Description          |
+| ------ | ------------------ | -------------------- |
+| GET    | `/dashboard/stats` | Dashboard statistics |
 
 ---
 
